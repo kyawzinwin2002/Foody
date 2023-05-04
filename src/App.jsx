@@ -1,8 +1,11 @@
 import React from 'react'
+import Path from './routes/Path'
 
 const App = () => {
   return (
-    <div>App</div>
+    <div>
+      <Path/>
+    </div>
   )
 }
 
