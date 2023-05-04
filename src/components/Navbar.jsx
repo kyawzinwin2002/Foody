@@ -6,11 +6,13 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   return (
-    <div className=' py-3 px-5 flex justify-around items-center'>
+    <div className='sticky top-0 bg-white z-50 py-3 px-5 flex justify-around items-center'>
+        <Link to={"/"}>
         <div className=" flex gap-2 items-center">
             <SiIfood className=' text-3xl text-[#d02a3a] '/>
             <h1 className=' text-3xl text-[#d02a3a] font-bold'>Foody</h1>
         </div>
+        </Link>
         <ul className=' flex gap-5 items-center'>
             <Link to={"/menu"}>
             <li>
@@ -29,8 +31,8 @@ const Navbar = () => {
             </li>
             </Link>
             <Link to={"/register"}>
-            <li>
-                <button className=' px-6 py-1 rounded-md shadow-sm bg-black text-white text-sm
+            <li className=''>
+                <button className='  hover:bg-[#d02a3a] px-6 py-1 rounded-2xl shadow-sm bg-black text-white text-sm
                 '>Login/SignUp</button>
             </li>
             </Link>
