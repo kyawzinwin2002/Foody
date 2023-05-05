@@ -6,7 +6,7 @@ export const foodApi = createApi({
     tagTypes:["foodApi"],
     endpoints: (builder) => ({
         getFood:builder.query({
-            query:() => "/1/filter.php?c=Seafood",
+            query:(category) => `/1/filter.php?c=${category}`,
             providesTags:["foodApi"]
         }),
         getSingleFood:builder.query({
