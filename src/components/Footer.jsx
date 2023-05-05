@@ -7,7 +7,7 @@ import "../CSS/Footer.css"
 
 const Footer = () => {
   return (
-   <div className=" bg-black py-12  flex flex-col gap-8">
+   <div className="  bg-black py-12  flex flex-col gap-8">
      <div className='  flex  justify-around items-center'>
         <div className="  flex flex-col items-center gap-3">
             <h1 className=' text-5xl text-[#d02a3a] '><SiIfood/></h1>
