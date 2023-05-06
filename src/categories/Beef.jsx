@@ -29,8 +29,8 @@ const Beef = () => {
             <img src={meal?.strMealThumb} className=' itemImg rounded-md w-[150px]' alt="" />
             <a href={`/detail/${meal?.idMeal}`} className=' flex justify-center items-center align-middle bottom-11 left-11 showText  absolute w-14 h-14 rounded-[100%] bg-[#d02a3a] text-white'>
 
-                <BsCartPlus className=' text-2xl'/>
-            </a>
+<BsCartPlus className=' text-2xl'/>
+</a>
           </div>
         )
       })}
