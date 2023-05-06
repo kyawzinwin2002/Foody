@@ -10,24 +10,24 @@ const Detail = () => {
     const item = data?.meals[0]
     // console.log(item);
     const ingredients = [
-        item?.strIngredient1,
-        item?.strIngredient2,
-        item?.strIngredient3,
-        item?.strIngredient4,
-        item?.strIngredient5,
-        item?.strIngredient6,
-        item?.strIngredient7,
-        item?.strIngredient8,
-        item?.strIngredient9,
-        item?.strIngredient10,
-        item?.strIngredient11,
-        item?.strIngredient12,
-        item?.strIngredient13,
-        item?.strIngredient14,
-        item?.strIngredient15
+        {id:1,i:item?.strIngredient1},
+        {id:2,i:item?.strIngredient2},
+        {id:3,i:item?.strIngredient3},
+        {id:4,i:item?.strIngredient4},
+        {id:5,i:item?.strIngredient5},
+        {id:6,i:item?.strIngredient6},
+        {id:7,i:item?.strIngredient7},
+        {id:8,i:item?.strIngredient8},
+        {id:9,i:item?.strIngredient9},
+        {id:10,i:item?.strIngredient10},
+        {id:11,i:item?.strIngredient11},
+        {id:12,i:item?.strIngredient12},
+        {id:13,i:item?.strIngredient13},
+        {id:14,i:item?.strIngredient14},
+        {id:15,i:item?.strIngredient15}
 
     ]
-    console.log(ingredients);
+    // console.log(ingredients);
   return (
     <div>
         <Navbar/>
@@ -43,9 +43,9 @@ const Detail = () => {
                 </a>
                 <h1 className=' text-lg text-gray-500'>Ingredients</h1>
                 <ul>
-                    {ingredients.map(i => {
+                    {ingredients?.map(i => {
                         return(
-                            <li>{i}</li>
+                            <li key={i.id}>{i.i}</li>
                         )
                     })}
                 </ul>

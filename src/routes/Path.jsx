@@ -20,13 +20,14 @@ import Side from '../categories/Side'
 import Starter from '../categories/Starter'
 import Vegan from '../categories/Vegan'
 import Vegetarian from '../categories/Vegetarian'
+import Search from '../pages/Search'
 
 const Path = () => {
   return (
     <div>
         <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/search:name' element={<Home/>}/>
+            <Route path='/search/:name' element={<Search/>}/>
 
             <Route path='/menu' element={<Menu/>}/>
             <Route path='/cart' element={<Cart/>}/>

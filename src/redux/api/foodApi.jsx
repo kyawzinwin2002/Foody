@@ -14,7 +14,7 @@ export const foodApi = createApi({
             providesTags:["foodApi"]
         }),
         searchFood:builder.query({
-            query:(name) => `/1/search.php?s=${name.toLowerCase()}`,
+            query:(name) => `/1/search.php?s=${name}`,
             providesTags:["foodApi"]
         })
         
