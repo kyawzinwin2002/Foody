@@ -26,6 +26,8 @@ const Path = () => {
     <div>
         <Routes>
             <Route path='/' element={<Home/>}/>
+            <Route path='/search:name' element={<Home/>}/>
+
             <Route path='/menu' element={<Menu/>}/>
             <Route path='/cart' element={<Cart/>}/>
             <Route path='/login' element={<Login/>}/>

@@ -12,9 +12,14 @@ export const foodApi = createApi({
         getSingleFood:builder.query({
             query:(id) => `/1/lookup.php?i=${id}`,
             providesTags:["foodApi"]
+        }),
+        searchFood:builder.query({
+            query:(name) => `/1/search.php?s=${name.toLowerCase()}`,
+            providesTags:["foodApi"]
         })
+        
         
     })
 })
 
-export const { useGetFoodQuery,useGetSingleFoodQuery } = foodApi
+export const { useGetFoodQuery,useGetSingleFoodQuery,useSearchFoodQuery } = foodApi
