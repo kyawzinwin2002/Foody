@@ -1,0 +1,6 @@
+.box{
+    background-image: url("../img/class.webp");
+    /* background-position: center; */
+    background-size: cover;
+    background-repeat: no-repeat;
+}

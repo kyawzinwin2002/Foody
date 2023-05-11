@@ -1,11 +1,4 @@
-.showText{
-    opacity: 0;
-    transition: all 0.5s;
-}
 
-.item:hover .showText{
-    opacity: 0.9;
-}
 
 .itemImg{
     transition: all 0.5s;

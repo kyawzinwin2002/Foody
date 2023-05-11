@@ -8,7 +8,7 @@ import "../CSS/Footer.css"
 const Footer = () => {
   return (
    <div className="  bg-black py-12  flex flex-col gap-8">
-     <div className='  flex  justify-around items-center'>
+     <div className='  flex flex-col gap-4 md:flex-row  justify-around items-center'>
         <div className="  flex flex-col items-center gap-3">
             <h1 className=' text-5xl text-[#d02a3a] '><SiIfood/></h1>
             <h1 className=' text-3xl text-white font-semibold '>Foody</h1>
@@ -22,9 +22,7 @@ const Footer = () => {
                     <a href="#">Read Our Blog</a>
                 </li>
                 
-                <li>
-                    <a href="/register">Sign up to deliver</a>
-                </li>
+                
                 
                 <li>
                     <a href="#">About Online Food</a>
@@ -39,9 +37,7 @@ const Footer = () => {
                     <a href="#">Read FAQ</a>
                 </li>
                 
-                <li>
-                    <a href="#">View All Cities</a>
-                </li>
+               
                 
                 <li>
                     <a href="#">Restaurants near me</a>
@@ -50,8 +46,10 @@ const Footer = () => {
             </ul>
         </div>
     </div>
-    <div className=" flex justify-around items-center">
-        <h1 className=' text-xs text-white'>Copyright © 2023 Foody. Proudly recreated by Kyaw.<br/>Inspired from  Technon Group (Group 3) ❤️</h1>
+    <div className=" flex flex-col gap-3 items-center md:flex-row md:justify-around md:items-center ">
+        <div className="text-center">
+        <h1 className='  text-xs text-white'>Copyright © 2023 Foody. Proudly recreated by Kyaw.<br/>Inspired from  Technon Group (Group 3) ❤️</h1>
+        </div>
         <ul className=' text-white text-sm flex items-center gap-3'>
             <li>
                 <a href="#">Privacy Policy</a>
