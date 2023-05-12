@@ -6,7 +6,8 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import Detail from "../pages/Detail";
 import Foods from "../pages/Foods";
-
+import Favorite from "../pages/Favorite";
+import Search from "../pages/Search";
 
 const Path = () => {
   return (
@@ -17,7 +18,9 @@ const Path = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/detail/:id" element={<Detail />} />
-        <Route path="/foods" element={<Foods/>}/>
+        <Route path="/foods" element={<Foods />} />
+        <Route path="/favorite" element={<Favorite />} />
+        <Route path="/search/:name" element={<Search/>}/>
       </Routes>
     </div>
   );

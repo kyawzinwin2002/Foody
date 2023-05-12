@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
-
 import beef from "../img/beef.png";
 import breakfast from "../img/breakfast.png";
 import chicken from "../img/chicken.png";
@@ -18,15 +17,13 @@ import vegetarian from "../img/vegetarian.png";
 import "../CSS/Menu.css";
 import "animate.css";
 import Footer from "../components/Footer";
-import { Link, useNavigate } from "react-router-dom";
-import { useGetFoodQuery } from "../redux/api/foodApi";
-import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+
+import { useDispatch } from "react-redux";
 import { SET_ROUTE } from "../redux/services/foodSlice";
 
 const Menu = () => {
-
-
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const nav = useNavigate();
 
@@ -59,7 +56,10 @@ const Menu = () => {
           return (
             <button
               key={cat?.id}
-              onClick={() => {dispatch(SET_ROUTE(cat?.name))}}
+              onClick={() => {
+                dispatch(SET_ROUTE(cat?.name));
+                nav("/foods");
+              }}
               className=" flex gap-4 px-6 rounded-2xl items-center py-3 border-2 border-gray-500 "
             >
               <img src={cat?.food} className=" w-10 h-10" alt="" />

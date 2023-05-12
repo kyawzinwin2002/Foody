@@ -16,7 +16,6 @@ const Detail = () => {
   const { data } = useGetSingleFoodQuery(id);
   const item = data?.meals[0];
 
-  // console.log(item);
   const ingredients = [
     { id: 1, i: item?.strIngredient1 },
     { id: 2, i: item?.strIngredient2 },
@@ -54,21 +53,27 @@ const Detail = () => {
           <div className=" flex gap-24">
             <div className=" flex flex-col gap-5">
               <div className=" flex flex-col gap-5">
-                <h1 className=" flex gap-3 items-center  text-xl font-bold text-gray-800 ">
+                <h1 className=" flex gap-3 items-center  text-xl font-bold text-teal-800 ">
                   Category <BiRightArrow />{" "}
                   <span className=" text-[#d02a3a]">{item?.strCategory}</span>
                 </h1>
               </div>
-              <h1 className=" flex gap-3 items-center  text-xl font-bold text-gray-800 ">
+              <h1 className=" flex gap-3 items-center  text-xl font-bold text-teal-800">
                 Country <BiRightArrow />{" "}
                 <span className=" text-[#d02a3a]">{item?.strArea}</span>
               </h1>
-              <h1 className=" flex gap-3 items-center  text-xl font-bold text-gray-800 ">
+              <h1 className=" flex gap-3 items-center  text-xl font-bold text-teal-800 ">
                 Watch Here <BiRightArrow />{" "}
                 <a href={item?.strYoutube} className=" text-3xl text-red-500">
                   <IoLogoYoutube />
                 </a>
               </h1>
+              <a
+                href="#instructions"
+                className=" text-lg flex justify-center animate__animated animate__bounce px-6 py-1 rounded-md bg-[#d02a3a] text-white"
+              >
+                Read Instructions
+              </a>
             </div>
             <div className=" flex flex-col gap-3">
               <h1 className="  text-2xl font-bold text-teal-800">
@@ -86,7 +91,7 @@ const Detail = () => {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col gap-5 px-10">
+        <div id="instructions" className="  flex flex-col gap-5 px-10">
           <div className=" text-center">
             <h1 className=" text-3xl font-bold text-gray-600">Instructions</h1>
           </div>

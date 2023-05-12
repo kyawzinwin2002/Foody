@@ -1,0 +1,12 @@
+.favTag{
+    position: absolute;
+    border-left-width: 25px;
+    border-right-width: 25px;
+    border-top-width: 25px;
+    border-bottom-width: 25px;
+    right: 15px;
+    border-right-color: #d02a3a;
+    border-top-color: #d02a3a;
+   border-left-color: transparent;
+   border-bottom-color: transparent;
+}
