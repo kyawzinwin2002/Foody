@@ -1,20 +1,17 @@
-import React, { useState } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import { useParams } from "react-router-dom";
 import { useGetSingleFoodQuery } from "../redux/api/foodApi";
 import { IoLogoYoutube } from "react-icons/io";
 import { BiRightArrow } from "react-icons/bi";
-import { HiHeart } from "react-icons/hi";
-import { HiOutlineHeart } from "react-icons/hi";
 import Footer from "../components/Footer";
-import { useDispatch, useSelector } from "react-redux";
-import { ADD_FAVORITE } from "../redux/services/foodSlice";
-import Cookies from "js-cookie";
+import { useSelector } from "react-redux";
 
 const Detail = () => {
   const { id } = useParams();
   const { data } = useGetSingleFoodQuery(id);
   const item = data?.meals[0];
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   const ingredients = [
     { id: 1, i: item?.strIngredient1 },
@@ -35,51 +32,81 @@ const Detail = () => {
   ];
 
   return (
-    <div>
+    <div className=" flex flex-col">
       <Navbar />
-      <div className=" p-2  w-screen mt-3 flex flex-col  gap-5 justify-center">
+      <div
+        className={
+          darkMode
+            ? " p-2  w-screen pt-3 flex flex-col bg-gray-800  gap-5  justify-center"
+            : " p-2  w-screen pt-3  flex flex-col  gap-5 justify-center"
+        }
+      >
         <div className=" text-center">
-          <h1 className=" text-4xl  text-[#ffae00] font-bold">
+          <h1 className=" text-xl md:text-4xl  text-[#ffae00] font-bold">
             How To Make {item?.strMeal}
           </h1>
         </div>
 
-        <div className=" flex mt-7 justify-center gap-10 ">
+        <div className=" flex flex-col md:flex-row mt-7 justify-center gap-10 ">
           <img
             src={item?.strMealThumb}
-            className="  w-[500px] rounded-2xl h-[500px]"
+            className=" w-[300px] mx-auto  md:w-[500px] rounded-2xl md:h-[500px]"
             alt=""
           />
-          <div className=" flex gap-24">
-            <div className=" flex flex-col gap-5">
-              <div className=" flex flex-col gap-5">
-                <h1 className=" flex gap-3 items-center  text-xl font-bold text-teal-800 ">
-                  Category <BiRightArrow />{" "}
-                  <span className=" text-[#d02a3a]">{item?.strCategory}</span>
-                </h1>
-              </div>
-              <h1 className=" flex gap-3 items-center  text-xl font-bold text-teal-800">
+          <div className=" flex flex-col md:items-start items-center  md:flex-row gap-24">
+            <div className=" flex flex-col  gap-5">
+              <h1
+                className={
+                  darkMode
+                    ? " flex gap-3 items-center  text-xl font-bold text-yellow-500 "
+                    : " flex gap-3 items-center  text-xl font-bold text-teal-800 "
+                }
+              >
+                Category <BiRightArrow />{" "}
+                <span className=" text-[#d02a3a]">{item?.strCategory}</span>
+              </h1>
+              <h1
+                className={
+                  darkMode
+                    ? " flex gap-3 items-center  text-xl font-bold text-yellow-500 "
+                    : " flex gap-3 items-center  text-xl font-bold text-teal-800 "
+                }
+              >
                 Country <BiRightArrow />{" "}
                 <span className=" text-[#d02a3a]">{item?.strArea}</span>
               </h1>
-              <h1 className=" flex gap-3 items-center  text-xl font-bold text-teal-800 ">
+              <h1
+                className={
+                  darkMode
+                    ? " flex gap-3 items-center  text-xl font-bold text-yellow-500 "
+                    : " flex gap-3 items-center  text-xl font-bold text-teal-800 "
+                }
+              >
                 Watch Here <BiRightArrow />{" "}
                 <a href={item?.strYoutube} className=" text-3xl text-red-500">
                   <IoLogoYoutube />
                 </a>
               </h1>
-              <a
-                href="#instructions"
-                className=" text-lg flex justify-center animate__animated animate__bounce px-6 py-1 rounded-md bg-[#d02a3a] text-white"
-              >
-                Read Instructions
-              </a>
+              <div className="  animate__animated animate__bounce">
+                <a
+                  href="#instructions"
+                  className=" text-lg   px-6 py-1 rounded-md bg-[#d02a3a] text-white"
+                >
+                  Read Instructions
+                </a>
+              </div>
             </div>
             <div className=" flex flex-col gap-3">
-              <h1 className="  text-2xl font-bold text-teal-800">
+              <h1
+                className={
+                  darkMode
+                    ? "  text-2xl font-bold text-yellow-500"
+                    : "  text-2xl font-bold text-teal-800"
+                }
+              >
                 Ingredients
               </h1>
-              <ul>
+              <ul className={darkMode ? "text-white" : ""}>
                 {ingredients?.map((i) => {
                   return (
                     <li className=" font-bold" key={i.id}>
@@ -91,11 +118,27 @@ const Detail = () => {
             </div>
           </div>
         </div>
-        <div id="instructions" className="  flex flex-col gap-5 px-10">
+        <div id="instructions" className=" py-20  flex flex-col gap-5 px-10">
           <div className=" text-center">
-            <h1 className=" text-3xl font-bold text-gray-600">Instructions</h1>
+            <h1
+              className={
+                darkMode
+                  ? " text-3xl font-bold text-yellow-500"
+                  : " text-3xl font-bold text-gray-600"
+              }
+            >
+              Instructions
+            </h1>
           </div>
-          <p className=" text-lg leading-8">{item?.strInstructions}</p>
+          <p
+            className={
+              darkMode
+                ? " text-lg leading-8 text-yellow-500"
+                : " text-lg leading-8"
+            }
+          >
+            {item?.strInstructions}
+          </p>
         </div>
       </div>
       <Footer />

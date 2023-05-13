@@ -5,30 +5,41 @@ import { BsTrash } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { REMOVE_FAVORITE } from "../redux/services/foodSlice";
 import Footer from "../components/Footer";
-import Navbar from '../components/Navbar'
-import { useState } from "react";
-
-
+import Navbar from "../components/Navbar";
 
 const Favorite = () => {
-  const favorite = useSelector(state => state.foodSlice.favorite)
+  const favorite = useSelector((state) => state.foodSlice.favorite);
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   const dispatch = useDispatch();
-  // console.log(favorite);
 
-  if(favorite.length){
-
+  if (favorite.length) {
     return (
-      <div className=" flex flex-col">
-        <Navbar/>
-        <div className=" flex w-screen flex-wrap h-screen gap-10">
+      <div
+        className={
+          darkMode
+            ? " flex flex-col  h-screen bg-gray-800"
+            : " flex flex-col  h-screen"
+        }
+      >
+        <Navbar />
+        <div
+          className={
+            darkMode
+              ? "  mt-5 w-screen flex flex-wrap gap-11 py-2 justify-center bg-gray-800"
+              : "  mt-5 w-screen flex flex-wrap gap-11 py-2 justify-center "
+          }
+        >
           {favorite?.map((item) => {
             return (
               <div
                 key={item?.idMeal}
-                className=" p-4 shadow-md flex flex-col gap-3 relative"
+                className={
+                  darkMode
+                    ? " p-4 shadow-lg rounded-2xl  flex flex-col gap-3 relative border-yellow-700 shadow-red-500  border-2"
+                    : " p-4 shadow-md flex rounded-2xl flex-col gap-3 border-2  relative"
+                }
               >
-                <div className=""></div>
                 <img src={item?.strMealThumb} className=" w-[150px]" alt="" />
                 <div className="flex justify-end gap-2">
                   <Link to={`/detail/${item?.idMeal}`}>
@@ -55,16 +66,28 @@ const Favorite = () => {
     );
   }
   return (
-    <div className=" flex flex-col ">
+    <div
+      className={
+        darkMode
+          ? " flex flex-col  h-screen bg-gray-800"
+          : " flex flex-col  h-screen"
+      }
+    >
       <Navbar />
       <div className="w-screen h-screen flex justify-center items-center">
         <div className="flex flex-col gap-5">
-          <h1 className=" text-3xl font-bold text-[#d02a3a]">
+          <h1
+            className={
+              darkMode
+                ? " text-xl md:text-3xl font-bold text-yellow-500"
+                : " text-xl md:text-3xl font-bold text-[#d02a3a]"
+            }
+          >
             You have not added your favorites yet!
           </h1>
           <div className=" flex justify-center">
             <Link to={"/menu"}>
-              <button className=" px-6 py-1 rounded-md text-white bg-[#d02a3a] text-2xl">
+              <button className=" px-6 py-1 rounded-md text-white bg-[#d02a3a] text-lg md:text-2xl">
                 Back To Menu
               </button>
             </Link>
@@ -76,4 +99,4 @@ const Favorite = () => {
   );
 };
 
-export default Favorite
+export default Favorite;

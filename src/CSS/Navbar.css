@@ -1,7 +1,7 @@
-a.active .dropdown-menu{
-    display: flex;
-    flex-direction: column;
+a.active .dropdown-menu {
+  display: flex;
+  flex-direction: column;
 }
-.dropdown-menu{
-    display: none;
+.dropdown-menu {
+  display: none;
 }

@@ -5,8 +5,14 @@ const initialState = {
   allFood: [],
   favorite: [],  
   goToRoute: "",
-  
+  darkMode:false
 };
+
+const STORAGE_KEY= "darkMode"
+const storedDarkItem = Cookies.get(STORAGE_KEY);
+if(storedDarkItem){
+  initialState.darkMode = JSON.parse(storedDarkItem)
+}
 
 const STORE_WORD = "favorite"
 const storedItem = Cookies.get(STORE_WORD)
@@ -43,8 +49,12 @@ export const foodSlice = createSlice({
       state.goToRoute = payload;
       Cookies.set("goToRoute", JSON.stringify(state.goToRoute));
     },
+    CHANGE_DARKMODE:(state) => {
+      state.darkMode = !state.darkMode
+      Cookies.set(STORAGE_KEY,JSON.stringify(state.darkMode))
+    }
   },
 });
 
-export const { ADD_FOOD, ADD_FAVORITE,REMOVE_FAVORITE, SET_ROUTE } = foodSlice.actions;
+export const { ADD_FOOD, ADD_FAVORITE,REMOVE_FAVORITE, SET_ROUTE,CHANGE_DARKMODE } = foodSlice.actions;
 export default foodSlice.reducer;

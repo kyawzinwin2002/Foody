@@ -1,20 +1,28 @@
-import React from 'react'
-import { AiFillStar, AiOutlineFileSearch, AiOutlineHeart } from 'react-icons/ai';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { ADD_FAVORITE } from '../redux/services/foodSlice';
+import React from "react";
+import {
+  AiFillStar,
+  AiOutlineFileSearch,
+  AiOutlineHeart,
+} from "react-icons/ai";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { ADD_FAVORITE } from "../redux/services/foodSlice";
 
 const SearchDetail = (props) => {
-    const {idMeal,strMealThumb} =props
-     const favorite = useSelector((state) => state.foodSlice.favorite);
+  const { idMeal, strMealThumb } = props;
+  const favorite = useSelector((state) => state.foodSlice.favorite);
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
-     const sameItemFromFav = favorite?.find((item) => item.idMeal === idMeal);
+  const sameItemFromFav = favorite?.find((item) => item.idMeal === idMeal);
 
-     const dispatch = useDispatch();
+  const dispatch = useDispatch();
   return (
     <div
-     
-      className=" p-4 shadow-md flex flex-col gap-3 relative"
+      className={
+        darkMode
+          ? " p-4 shadow-lg rounded-2xl  flex flex-col gap-3 relative border-yellow-700 shadow-red-500  border-2"
+          : " p-4 shadow-md rounded-2xl flex flex-col gap-3 border-2  relative"
+      }
     >
       {sameItemFromFav ? (
         <div className="favTag">
@@ -44,6 +52,6 @@ const SearchDetail = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default SearchDetail
+export default SearchDetail;

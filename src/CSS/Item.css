@@ -1,9 +1,0 @@
-
-
-.itemImg{
-    transition: all 0.5s;
-}
-
-.item:hover .itemImg{
-    transform: scale(1.2,1.2);
-}

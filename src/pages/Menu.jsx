@@ -18,12 +18,12 @@ import "../CSS/Menu.css";
 import "animate.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
-
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { SET_ROUTE } from "../redux/services/foodSlice";
 
 const Menu = () => {
   const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   const nav = useNavigate();
 
@@ -44,10 +44,18 @@ const Menu = () => {
     { id: 14, food: vegetarian, name: "Vegetarian" },
   ];
   return (
-    <div className=" flex flex-col  gap-5 ">
+    <div
+      className={darkMode ? " flex flex-col  gap-5 bg-gray-800" : " flex flex-col  gap-5 "}
+    >
       <Navbar />
       <div className=" text-center">
-        <h1 className=" font-semibold text-gray-700 text-2xl">
+        <h1
+          className={
+            darkMode
+              ? " font-semibold text-yellow-500 text-2xl"
+              : " font-semibold text-gray-700 text-2xl"
+          }
+        >
           Easy to Search by Categories
         </h1>
       </div>
@@ -60,10 +68,22 @@ const Menu = () => {
                 dispatch(SET_ROUTE(cat?.name));
                 nav("/foods");
               }}
-              className=" flex gap-4 px-6 rounded-2xl items-center py-3 border-2 border-gray-500 "
+              className={
+                darkMode
+                  ? " flex gap-4 px-6 rounded-2xl items-center py-3 border-2 border-red-500 "
+                  : " flex gap-4 px-6 rounded-2xl items-center py-3 border-2 border-gray-500 "
+              }
             >
               <img src={cat?.food} className=" w-10 h-10" alt="" />
-              <h1 className=" text-lg font-bold text-[#d02a3a]">{cat?.name}</h1>
+              <h1
+                className={
+                  darkMode
+                    ? " text-lg font-bold text-white"
+                    : " text-lg font-bold text-[#d02a3a]"
+                }
+              >
+                {cat?.name}
+              </h1>
             </button>
           );
         })}
