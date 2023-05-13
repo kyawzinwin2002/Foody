@@ -1,18 +1,17 @@
-import React from 'react'
-import Navbar from '../components/Navbar'
-import HomePage from '../components/HomePage'
-import Footer from '../components/Footer'
-import ToMenu from '../components/ToMenu'
+import React from "react";
+import Navbar from "../components/Navbar";
+import HomePage from "../components/HomePage";
+import Footer from "../components/Footer";
 
 const Home = () => {
   return (
     <div>
-        <Navbar/>
-        <HomePage/>
-        <ToMenu/>
-        <Footer/>
-    </div>
-  )
-}
+      <Navbar />
+      <HomePage />
 
-export default Home
+      <Footer />
+    </div>
+  );
+};
+
+export default Home;

@@ -14,7 +14,7 @@ import side from "../img/side.png";
 import starter from "../img/starter.png";
 import vegan from "../img/vegan.png";
 import vegetarian from "../img/vegetarian.png";
-import "../CSS/Menu.css";
+
 import "animate.css";
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
