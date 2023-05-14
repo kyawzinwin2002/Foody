@@ -15,13 +15,11 @@ import starter from "../img/starter.png";
 import vegan from "../img/vegan.png";
 import vegetarian from "../img/vegetarian.png";
 
-
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_ROUTE } from "../redux/services/foodSlice";
 import Navbar from "../components/Navbar_components/Navbar";
-
 
 const Menu = () => {
   const dispatch = useDispatch();
@@ -46,7 +44,11 @@ const Menu = () => {
   ];
   return (
     <div
-      className={darkMode ? " flex flex-col  gap-5 bg-gray-800" : " flex flex-col  gap-5 "}
+      className={
+        darkMode
+          ? " flex flex-col  gap-5 bg-gray-800"
+          : " flex flex-col  gap-5 "
+      }
     >
       <Navbar />
       <div className=" text-center">

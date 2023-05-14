@@ -1,34 +1,31 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { TextInput, PasswordInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
 import { Link, useNavigate } from "react-router-dom";
-import { useLoginMutation } from '../redux/api/authApi';
-import { ADD_USER } from '../redux/services/authSlice';
-import LoginLogo from '../components/Login/LoginLogo';
-import Navbar from '../components/Navbar_components/Navbar';
-import Footer from '../components/Footer';
-
+import { useLoginMutation } from "../redux/api/authApi";
+import { ADD_USER } from "../redux/services/authSlice";
+import LoginLogo from "../components/Login/LoginLogo";
+import Navbar from "../components/Navbar_components/Navbar";
+import Footer from "../components/Footer";
 
 const Login = () => {
-    const [login] = useLoginMutation()
-    const form = useForm({
-      initialValues: {        
-        email: "kyaw8@gmail.com",
-        password: "12345678",       
-      },
+  const [login] = useLoginMutation();
+  const form = useForm({
+    initialValues: {
+      email: "",
+      password: "",
+    },
 
-      validate: {     
-        email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-        password: (value) =>
-          value.length < 8
-            ? "Password name must have at least 8 letters"
-            : null,        
-      },
-    });
-    const dispatch = useDispatch()
-    const nav = useNavigate()
-    const darkMode = useSelector(state => state.foodSlice.darkMode)
+    validate: {
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      password: (value) =>
+        value.length < 8 ? "Password name must have at least 8 letters" : null,
+    },
+  });
+  const dispatch = useDispatch();
+  const nav = useNavigate();
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
   return (
     <div className="">
       <Navbar />
@@ -126,6 +123,6 @@ const Login = () => {
       <Footer />
     </div>
   );
-}
+};
 
-export default Login
+export default Login;

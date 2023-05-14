@@ -1,43 +1,46 @@
-import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { CHANGE_DARKMODE } from '../../redux/services/foodSlice';
-import { CiSun } from 'react-icons/ci';
-import { BsFillHeartFill, BsMoonStarsFill } from 'react-icons/bs';
-import { AiOutlineMenu } from 'react-icons/ai';
-import { Link, useNavigate } from 'react-router-dom';
-import { GiForkKnifeSpoon } from 'react-icons/gi';
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { CHANGE_DARKMODE } from "../../redux/services/foodSlice";
+import { FaSun } from "react-icons/fa";
+import { BsFillHeartFill, BsMoonStarsFill } from "react-icons/bs";
+import { AiOutlineMenu } from "react-icons/ai";
+import { Link, useNavigate } from "react-router-dom";
+import { GiForkKnifeSpoon } from "react-icons/gi";
 import Swal from "sweetalert2";
-import { useLogoutMutation } from '../../redux/api/authApi';
-import { REMOVE_USER } from '../../redux/services/authSlice';
-
+import { useLogoutMutation } from "../../redux/api/authApi";
+import { REMOVE_USER } from "../../redux/services/authSlice";
 
 const PhoneMenu = () => {
-    const dispatch = useDispatch()
-    const darkMode = useSelector(state => state.foodSlice.darkMode)
+  const dispatch = useDispatch();
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
   const [isOpen, setIsOpen] = useState(false);
   const user = useSelector((state) => state.authSlice.user);
   const token = useSelector((state) => state.authSlice.token);
   const [isProfileOpen, setIsProfileOpen] = useState(false);
- const [logout] = useLogoutMutation();
- const nav = useNavigate()
- const logoutHandler = async () => {
-   const { data } = await logout(token);
-   dispatch(REMOVE_USER());
-   if (data?.success) {
-     nav("/");
-   }
- };
+  const [logout] = useLogoutMutation();
+  const nav = useNavigate();
+  const logoutHandler = async () => {
+    const { data } = await logout(token);
+    dispatch(REMOVE_USER());
+    if (data?.success) {
+      nav("/");
+    }
+  };
 
   const menuHandler = () => {
     if (token) {
       nav("/menu");
     } else {
       Swal.fire({
-        icon: "warning",
         title: "You don't have an account.",
-        text: "Create an account to see our menu<3",
-        footer:
-          '<a className="text-blue-500" href="/register">Register Here</a>',
+        text: "Create an account to see our menu.",
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Register Here",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          nav("/register");
+        }
       });
     }
   };
@@ -47,16 +50,18 @@ const PhoneMenu = () => {
       nav("/favorite");
     } else {
       Swal.fire({
-        icon: "warning",
         title: "You don't have an account.",
-        text: "Create an account to manage your favorite list,Honey <3",
-        footer:
-          '<a className="text-blue-500" href="/register">Register Here</a>',
+        text: "Create an account to see our menu.",
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Register Here",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          nav("/register");
+        }
       });
     }
   };
-
-  
 
   return (
     <div className=" block  md:hidden">
@@ -70,7 +75,7 @@ const PhoneMenu = () => {
           }
         >
           {darkMode ? (
-            <CiSun size="2rem" stroke={2.5} className=" text-yellow-500" />
+            <FaSun size="2rem" stroke={2.5} className=" text-yellow-500" />
           ) : (
             <BsMoonStarsFill
               size="1rem"
@@ -98,28 +103,28 @@ const PhoneMenu = () => {
               : " mt-5 right-5  absolute z-50 bg-white text-black  border-2 w-40 rounded-md py-4   gap-5 items-center flex flex-col md:hidden"
           }
         >
-          
-            <li>
-              <button onClick={menuHandler} className=" flex gap-1 items-center">
-                <GiForkKnifeSpoon
-                  className={darkMode ? "text-red-500" : "text-[#d02a3a]"}
-                />
-                <h1 className={darkMode ? "text-white" : "text-black"}>Menu</h1>
-              </button>
-            </li>
-         
-          
-            <li>
-              <button onClick={favoriteHandler} className=" flex gap-1 items-center">
-                <BsFillHeartFill
-                  className={darkMode ? "text-red-500" : "text-[#d02a3a]"}
-                />
-                <h1 className={darkMode ? "text-white" : "text-black"}>
-                  Favorite
-                </h1>
-              </button>
-            </li>
-          
+          <li>
+            <button onClick={menuHandler} className=" flex gap-1 items-center">
+              <GiForkKnifeSpoon
+                className={darkMode ? "text-red-500" : "text-[#d02a3a]"}
+              />
+              <h1 className={darkMode ? "text-white" : "text-black"}>Menu</h1>
+            </button>
+          </li>
+
+          <li>
+            <button
+              onClick={favoriteHandler}
+              className=" flex gap-1 items-center"
+            >
+              <BsFillHeartFill
+                className={darkMode ? "text-red-500" : "text-[#d02a3a]"}
+              />
+              <h1 className={darkMode ? "text-white" : "text-black"}>
+                Favorite
+              </h1>
+            </button>
+          </li>
 
           {token ? (
             <li className=" flex flex-col  gap-5 relative">
@@ -173,6 +178,6 @@ const PhoneMenu = () => {
       )}
     </div>
   );
-}
+};
 
-export default PhoneMenu
+export default PhoneMenu;

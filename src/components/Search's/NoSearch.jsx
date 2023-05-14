@@ -1,8 +1,8 @@
-import React from 'react'
-import Navbar from '../Navbar_components/Navbar';
-import { Link } from 'react-router-dom';
-import Footer from '../Footer';
-import { useSelector } from 'react-redux';
+import React from "react";
+import Navbar from "../Navbar_components/Navbar";
+import { Link } from "react-router-dom";
+import Footer from "../Footer";
+import { useSelector } from "react-redux";
 
 const NoSearch = () => {
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
@@ -37,6 +37,6 @@ const NoSearch = () => {
       </div>
     </div>
   );
-}
+};
 
-export default NoSearch
+export default NoSearch;

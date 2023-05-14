@@ -11,22 +11,25 @@ const HomePage = () => {
   const nav = useNavigate();
   const token = useSelector((state) => state.authSlice.token);
 
-
   const searchHandler = async (e) => {
     e.preventDefault();
-    if(token){
+    if (token) {
       if (search) {
         nav(`/search/${search}`, { state: { item: data?.meals } });
       } else {
         nav("/");
       }
-    }else{
+    } else {
       Swal.fire({
-        icon: "warning",
         title: "You don't have an account.",
-        text: "Create an account to search our menu<3",
-        footer:
-          '<a className="text-blue-500" href="/register">Register Here</a>',
+        text: "Create an account to see our menu.",
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Register Here",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          nav("/register");
+        }
       });
     }
   };

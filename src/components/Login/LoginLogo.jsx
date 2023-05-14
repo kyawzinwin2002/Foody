@@ -1,10 +1,10 @@
-import React from 'react'
-import { SiIfood } from 'react-icons/si';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { SiIfood } from "react-icons/si";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const LoginLogo = () => {
-    const darkMode = useSelector((state) => state.foodSlice.darkMode);
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   return (
     <Link to={"/"}>
@@ -28,6 +28,6 @@ const LoginLogo = () => {
       </div>
     </Link>
   );
-}
+};
 
-export default LoginLogo
+export default LoginLogo;

@@ -5,11 +5,7 @@ import Logo from "./Logo";
 import NavLIst from "./NavLIst";
 
 const Navbar = () => {
-  
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
-
-  
-  
 
   return (
     <div
@@ -20,7 +16,7 @@ const Navbar = () => {
       }
     >
       <Logo />
-      <NavLIst />      
+      <NavLIst />
       <PhoneMenu />
     </div>
   );

@@ -1,40 +1,36 @@
-import React from 'react'
-import { TextInput,  PasswordInput } from "@mantine/core";
+import React from "react";
+import { TextInput, PasswordInput } from "@mantine/core";
 import { useForm } from "@mantine/form";
-import { Link, useNavigate } from 'react-router-dom';
-import { useRegisterMutation } from '../redux/api/authApi';
-import LoginLogo from '../components/Login/LoginLogo';
-import Navbar from '../components/Navbar_components/Navbar';
+import { Link, useNavigate } from "react-router-dom";
+import { useRegisterMutation } from "../redux/api/authApi";
+import LoginLogo from "../components/Login/LoginLogo";
+import Navbar from "../components/Navbar_components/Navbar";
 import Footer from "../components/Footer";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 
 const Register = () => {
-const [register] = useRegisterMutation()
-const darkMode = useSelector(state => state.foodSlice.darkMode)
-    const form = useForm({
-      initialValues: {
-        name: "",
-        email: "",
-        password: "",
-        password_confirmation: "",
-      },
+  const [register] = useRegisterMutation();
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
+  const form = useForm({
+    initialValues: {
+      name: "",
+      email: "",
+      password: "",
+      password_confirmation: "",
+    },
 
-      validate: {
-        name: (value) =>
-          value.length < 2 ? "Name must have at least 2 letters" : null,
+    validate: {
+      name: (value) =>
+        value.length < 2 ? "Name must have at least 2 letters" : null,
 
-        email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-        password: (value) =>
-          value.length < 8
-            ? "Password name must have at least 8 letters"
-            : null,
-        password_confirmation: (value) =>
-          value.length < 8
-            ? "Password name must have at least 8 letters"
-            : null,
-      },
-    });
-    const nav = useNavigate()
+      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
+      password: (value) =>
+        value.length < 8 ? "Password name must have at least 8 letters" : null,
+      password_confirmation: (value) =>
+        value.length < 8 ? "Password name must have at least 8 letters" : null,
+    },
+  });
+  const nav = useNavigate();
   return (
     <div className="">
       <Navbar />
@@ -170,6 +166,6 @@ const darkMode = useSelector(state => state.foodSlice.darkMode)
       <Footer />
     </div>
   );
-}
+};
 
-export default Register
+export default Register;

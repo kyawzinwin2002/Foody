@@ -1,13 +1,13 @@
-import React from 'react'
-import { useDispatch, useSelector } from 'react-redux';
-import { REMOVE_FAVORITE } from '../../redux/services/foodSlice';
-import { BsTrash } from 'react-icons/bs';
-import { Link } from 'react-router-dom';
-import { AiOutlineFileSearch } from 'react-icons/ai';
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { REMOVE_FAVORITE } from "../../redux/services/foodSlice";
+import { BsTrash } from "react-icons/bs";
+import { Link } from "react-router-dom";
+import { AiOutlineFileSearch } from "react-icons/ai";
 
 const FavoriteDetail = (props) => {
-    const {idMeal,strMealThumb} = props
-    const dispatch = useDispatch()
+  const { idMeal, strMealThumb } = props;
+  const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   return (
@@ -38,6 +38,6 @@ const FavoriteDetail = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default FavoriteDetail
+export default FavoriteDetail;

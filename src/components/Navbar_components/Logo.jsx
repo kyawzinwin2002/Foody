@@ -1,10 +1,10 @@
-import React from 'react'
-import { SiIfood } from 'react-icons/si';
-import { useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { SiIfood } from "react-icons/si";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Logo = () => {
-    const darkMode = useSelector(state => state.foodSlice.darkMode)
+  const darkMode = useSelector((state) => state.foodSlice.darkMode);
   return (
     <Link to={"/"}>
       <div className=" flex gap-2 items-center">
@@ -27,6 +27,6 @@ const Logo = () => {
       </div>
     </Link>
   );
-}
+};
 
-export default Logo
+export default Logo;

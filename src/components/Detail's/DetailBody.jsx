@@ -1,32 +1,31 @@
-import React from 'react'
-import { useGetSingleFoodQuery } from '../../redux/api/foodApi';
-import { useSelector } from 'react-redux';
-import { BiRightArrow } from 'react-icons/bi';
-import { IoLogoYoutube } from 'react-icons/io';
+import React from "react";
+import { useGetSingleFoodQuery } from "../../redux/api/foodApi";
+import { useSelector } from "react-redux";
+import { BiRightArrow } from "react-icons/bi";
+import { IoLogoYoutube } from "react-icons/io";
 
 const DetailBody = (props) => {
-   
-    const {id} = props
-     const { data } = useGetSingleFoodQuery(id);
-     const item = data?.meals[0];
+  const { id } = props;
+  const { data } = useGetSingleFoodQuery(id);
+  const item = data?.meals[0];
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
- const ingredients = [
-   { id: 1, i: item?.strIngredient1 },
-   { id: 2, i: item?.strIngredient2 },
-   { id: 3, i: item?.strIngredient3 },
-   { id: 4, i: item?.strIngredient4 },
-   { id: 5, i: item?.strIngredient5 },
-   { id: 6, i: item?.strIngredient6 },
-   { id: 7, i: item?.strIngredient7 },
-   { id: 8, i: item?.strIngredient8 },
-   { id: 9, i: item?.strIngredient9 },
-   { id: 10, i: item?.strIngredient10 },
-   { id: 11, i: item?.strIngredient11 },
-   { id: 12, i: item?.strIngredient12 },
-   { id: 13, i: item?.strIngredient13 },
-   { id: 14, i: item?.strIngredient14 },
-   { id: 15, i: item?.strIngredient15 },
- ];
+  const ingredients = [
+    { id: 1, i: item?.strIngredient1 },
+    { id: 2, i: item?.strIngredient2 },
+    { id: 3, i: item?.strIngredient3 },
+    { id: 4, i: item?.strIngredient4 },
+    { id: 5, i: item?.strIngredient5 },
+    { id: 6, i: item?.strIngredient6 },
+    { id: 7, i: item?.strIngredient7 },
+    { id: 8, i: item?.strIngredient8 },
+    { id: 9, i: item?.strIngredient9 },
+    { id: 10, i: item?.strIngredient10 },
+    { id: 11, i: item?.strIngredient11 },
+    { id: 12, i: item?.strIngredient12 },
+    { id: 13, i: item?.strIngredient13 },
+    { id: 14, i: item?.strIngredient14 },
+    { id: 15, i: item?.strIngredient15 },
+  ];
   return (
     <div className=" flex flex-col md:flex-row md:justify-center md:gap-32 md:items-center gap-10 ">
       <img
@@ -100,6 +99,6 @@ const DetailBody = (props) => {
       </div>
     </div>
   );
-}
+};
 
-export default DetailBody
+export default DetailBody;

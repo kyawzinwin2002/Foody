@@ -1,8 +1,8 @@
-import React from 'react'
-import { useSelector } from 'react-redux';
-import Navbar from '../Navbar_components/Navbar';
-import { Link } from 'react-router-dom';
-import Footer from '../Footer';
+import React from "react";
+import { useSelector } from "react-redux";
+import Navbar from "../Navbar_components/Navbar";
+import { Link } from "react-router-dom";
+import Footer from "../Footer";
 
 const NoFavorite = () => {
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
@@ -39,6 +39,6 @@ const NoFavorite = () => {
       <Footer />
     </div>
   );
-}
+};
 
-export default NoFavorite
+export default NoFavorite;

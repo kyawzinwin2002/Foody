@@ -1,12 +1,12 @@
-import React, { useState } from 'react'
-import { BsFillHeartFill, BsMoonStarsFill } from 'react-icons/bs';
-import { GiForkKnifeSpoon } from 'react-icons/gi';
-import { useDispatch, useSelector } from 'react-redux';
-import { Link, useNavigate } from 'react-router-dom';
-import { CHANGE_DARKMODE } from '../../redux/services/foodSlice';
+import React, { useState } from "react";
+import { BsFillHeartFill, BsMoonStarsFill } from "react-icons/bs";
+import { GiForkKnifeSpoon } from "react-icons/gi";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
+import { CHANGE_DARKMODE } from "../../redux/services/foodSlice";
 import { FaSun } from "react-icons/fa";
-import { useLogoutMutation } from '../../redux/api/authApi';
-import { REMOVE_USER } from '../../redux/services/authSlice';
+import { useLogoutMutation } from "../../redux/api/authApi";
+import { REMOVE_USER } from "../../redux/services/authSlice";
 import Swal from "sweetalert2";
 
 const NavLIst = () => {
@@ -16,89 +16,94 @@ const NavLIst = () => {
   const [isProfileOpen, setIsProfileOpen] = useState(false);
   const user = useSelector((state) => state.authSlice.user);
   const token = useSelector((state) => state.authSlice.token);
-  const nav = useNavigate()
+  const nav = useNavigate();
   const [logout] = useLogoutMutation();
   const logoutHandler = async () => {
-    const {data} = await logout(token);
-    dispatch(REMOVE_USER())
-    if(data?.success){
-      nav("/")
-    }}
+    const { data } = await logout(token);
+    dispatch(REMOVE_USER());
+    if (data?.success) {
+      nav("/");
+    }
+  };
 
   const menuHandler = () => {
     if (token) {
       nav("/menu");
     } else {
       Swal.fire({
-        icon: "warning",
         title: "You don't have an account.",
-        text: "Create an account to see our menu<3",
-        footer: '<a className="text-blue-500" href="/register">Register Here</a>',
+        text: "Create an account to see our menu.",
+        icon: "warning",        
+        confirmButtonColor: "#3085d6",        
+        confirmButtonText: "Register Here",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          nav("/register")
+        }
       });
     }
   };
 
-    const favoriteHandler = () => {
-      if (token) {
-        nav("/favorite");
-      } else {
-        Swal.fire({
-          icon: "warning",
-          title: "You don't have an account.",
-          text: "Create an account to manage your favorite list,Honey <3",
-          footer:
-            '<a className="text-blue-500" href="/register">Register Here</a>',
-        });
-      }
-    };
+  const favoriteHandler = () => {
+    if (token) {
+      nav("/favorite");
+    } else {
+      Swal.fire({
+        title: "You don't have an account.",
+        text: "Create an account to see our menu.",
+        icon: "warning",
+        confirmButtonColor: "#3085d6",
+        confirmButtonText: "Register Here",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          nav("/register");
+        }
+      });
+    }
+  };
 
-
-  
-  
   return (
     <ul className="  gap-5 items-center hidden md:flex">
-     
-        <li>
-          <button
+      <li>
+        <button
           onClick={menuHandler}
+          className={
+            darkMode
+              ? " text-white text-lg flex gap-1 items-center"
+              : " text-[#d02a3a] text-lg flex gap-1 items-center"
+          }
+        >
+          <GiForkKnifeSpoon />
+          <h1
             className={
-              darkMode
-                ? " text-white text-lg flex gap-1 items-center"
-                : " text-[#d02a3a] text-lg flex gap-1 items-center"
+              darkMode ? " text-xl text-yellow-500" : " text-xl text-black"
             }
           >
-            <GiForkKnifeSpoon />
-            <h1
-              className={
-                darkMode ? " text-xl text-yellow-500" : " text-xl text-black"
-              }
-            >
-              Menu
-            </h1>
-          </button>
-        </li>
-      
-     
-        <li>
-          <button
+            Menu
+          </h1>
+        </button>
+      </li>
+
+      <li>
+        <button
           onClick={favoriteHandler}
+          className={
+            darkMode
+              ? " text-white text-lg flex gap-1 items-center"
+              : " text-[#d02a3a] text-lg flex gap-1 items-center"
+          }
+        >
+          <BsFillHeartFill />
+          <h1
             className={
-              darkMode
-                ? " text-white text-lg flex gap-1 items-center"
-                : " text-[#d02a3a] text-lg flex gap-1 items-center"
+              darkMode ? " text-xl text-yellow-500" : " text-xl text-black"
             }
           >
-            <BsFillHeartFill />
-            <h1
-              className={
-                darkMode ? " text-xl text-yellow-500" : " text-xl text-black"
-              }
-            >
-              Favorite
-            </h1>
-          </button>
-        </li>
-      
+            Favorite
+          </h1>
+        </button>
+      </li>
+
       <li>
         <button
           onClick={() => dispatch(CHANGE_DARKMODE())}
@@ -109,13 +114,9 @@ const NavLIst = () => {
           }
         >
           {darkMode ? (
-            <FaSun size="2rem"  className=" text-yellow-500" />
+            <FaSun size="2rem" className=" text-yellow-500" />
           ) : (
-            <BsMoonStarsFill
-              size="1rem"
-              
-              className=" text-blue-500"
-            />
+            <BsMoonStarsFill size="1rem" className=" text-blue-500" />
           )}
         </button>
       </li>
@@ -163,9 +164,8 @@ const NavLIst = () => {
           </li>
         </Link>
       )}
-
     </ul>
   );
-}
+};
 
-export default NavLIst
+export default NavLIst;

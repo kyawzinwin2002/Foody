@@ -6,7 +6,6 @@ const initialState = {
   token:null
 };
 
-
 const userInfo = "user"
 const tokenInfo = "token";
 const storeUser = Cookies.get(userInfo);
