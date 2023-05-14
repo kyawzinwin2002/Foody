@@ -7,6 +7,17 @@ const initialState = {
 };
 
 
+const userInfo = "user"
+const tokenInfo = "token";
+const storeUser = Cookies.get(userInfo);
+const storeToken = Cookies.get(tokenInfo);
+if(storeUser){
+  initialState.user = JSON.parse(storeUser)
+}
+if (storeToken) {
+  initialState.token = storeToken
+}
+
 
 export const authSlice = createSlice({
   name: "authSlice",

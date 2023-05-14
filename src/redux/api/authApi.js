@@ -26,7 +26,7 @@ export const authApi = createApi({
     logout: builder.mutation({
       query: (token) => ({
         url: `/user-logout`,
-        method: "POSE",
+        method: "POST",
         headers:{authorization : `Bearer ${token}`}
       }),
       invalidatesTags:["authApi"]

@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 import "../CSS/HomePage.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useSearchFoodQuery } from "../redux/api/foodApi";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const HomePage = () => {
   const [search, setSearch] = useState("");
   const { data } = useSearchFoodQuery(search);
   const nav = useNavigate();
+  const token = useSelector((state) => state.authSlice.token);
+
 
   const searchHandler = async (e) => {
     e.preventDefault();
-    if (search) {
-      nav(`/search/${search}`, { state: { item: data?.meals } });
-    } else {
-      nav("/");
+    if(token){
+      if (search) {
+        nav(`/search/${search}`, { state: { item: data?.meals } });
+      } else {
+        nav("/");
+      }
+    }else{
+      Swal.fire({
+        icon: "warning",
+        title: "You don't have an account.",
+        text: "Create an account to search our menu<3",
+        footer:
+          '<a className="text-blue-500" href="/register">Register Here</a>',
+      });
     }
   };
   return (
