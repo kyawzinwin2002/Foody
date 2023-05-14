@@ -1,11 +1,10 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
-// import Home from "./Home";
-import { BsCartPlus } from "react-icons/bs";
-import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useSelector } from "react-redux";
-import SearchDetail from "../components/SearchDetail";
+import SearchDetail from "../components/Search's/SearchDetail";
+import Navbar from "../components/Navbar_components/Navbar";
+import NoSearch from "../components/Search's/NoSearch";
 
 const Search = () => {
   const { state } = useLocation();
@@ -13,36 +12,7 @@ const Search = () => {
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   if (state?.item === null) {
-    return (
-      <div
-        className={
-          darkMode
-            ? " flex flex-col  h-screen bg-gray-800"
-            : " flex flex-col  h-screen"
-        }
-      >
-        <Navbar />
-        <div className=" flex flex-col gap-5 justify-center items-center w-screen h-screen">
-          <h1
-            className={
-              darkMode
-                ? " text-lg md:text-3xl font-semibold text-yellow-500"
-                : " text-lg md:text-3xl font-semibold text-gray-600"
-            }
-          >
-            Oops!We haven't that food.TT
-          </h1>
-          <Link to={"/menu"}>
-            <button className=" px-6 py-1 rounded-md text-white bg-[#d02a3a] text-base md:text-2xl">
-              Back To Menu
-            </button>
-          </Link>
-        </div>
-        <div className="mt-auto">
-          <Footer />
-        </div>
-      </div>
-    );
+    return <NoSearch />;
   }
 
   return (

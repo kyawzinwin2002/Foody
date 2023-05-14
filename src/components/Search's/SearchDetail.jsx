@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { ADD_FAVORITE } from "../redux/services/foodSlice";
+import { ADD_FAVORITE } from "../../redux/services/foodSlice";
 
 const SearchDetail = (props) => {
   const { idMeal, strMealThumb } = props;

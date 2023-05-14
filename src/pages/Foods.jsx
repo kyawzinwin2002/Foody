@@ -1,9 +1,11 @@
 import React from "react";
 import { useGetFoodQuery } from "../redux/api/foodApi";
 import Food from "../components/Food";
-import Navbar from "../components/Navbar";
+
 import Footer from "../components/Footer";
 import Cookies from "js-cookie";
+import { useSelector } from "react-redux";
+import Navbar from "../components/Navbar_components/Navbar";
 
 const Foods = () => {
   const goToRoute = JSON.parse(Cookies.get("goToRoute"));

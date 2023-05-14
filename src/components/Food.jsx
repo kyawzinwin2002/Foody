@@ -4,7 +4,6 @@ import { AiOutlineHeart } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { ADD_FAVORITE } from "../redux/services/foodSlice";
 import { Link } from "react-router-dom";
-
 import "../CSS/Food.css";
 
 const Food = (props) => {

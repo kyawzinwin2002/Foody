@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "../components/Navbar";
+
 import beef from "../img/beef.png";
 import breakfast from "../img/breakfast.png";
 import chicken from "../img/chicken.png";
@@ -15,16 +15,17 @@ import starter from "../img/starter.png";
 import vegan from "../img/vegan.png";
 import vegetarian from "../img/vegetarian.png";
 
-import "animate.css";
+
 import Footer from "../components/Footer";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { SET_ROUTE } from "../redux/services/foodSlice";
+import Navbar from "../components/Navbar_components/Navbar";
+
 
 const Menu = () => {
   const dispatch = useDispatch();
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
-
   const nav = useNavigate();
 
   const categories = [
