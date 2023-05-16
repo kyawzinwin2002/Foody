@@ -46,7 +46,7 @@ const Menu = () => {
     <div
       className={
         darkMode
-          ? " flex flex-col  gap-5 bg-gray-800"
+          ? " flex flex-col  gap-5 bg-gray-900"
           : " flex flex-col  gap-5 "
       }
     >
