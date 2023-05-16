@@ -20,7 +20,7 @@ const Food = (props) => {
     <div
       className={
         darkMode
-          ? " p-4 shadow-lg  flex flex-col gap-3 relative rounded-2xl border-yellow-600 shadow-red-500  border-2"
+          ? " p-4 shadow-lg  flex flex-col gap-3 relative rounded-2xl bg-gray-700  "
           : " p-4 shadow-md flex flex-col gap-3 border-2 rounded-2xl  relative"
       }
     >

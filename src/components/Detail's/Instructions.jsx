@@ -22,7 +22,7 @@ const Instructions = (props) => {
       </div>
       <p
         className={
-          darkMode ? " text-lg leading-8 text-yellow-500" : " text-lg leading-8"
+          darkMode ? " text-lg leading-8 text-white" : " text-lg leading-8"
         }
       >
         {item?.strInstructions}

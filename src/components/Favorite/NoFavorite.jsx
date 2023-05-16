@@ -11,7 +11,7 @@ const NoFavorite = () => {
     <div
       className={
         darkMode
-          ? " flex flex-col  h-screen bg-gray-800"
+          ? " flex flex-col  h-screen bg-gray-900"
           : " flex flex-col  h-screen"
       }
     >

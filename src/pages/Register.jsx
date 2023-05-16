@@ -5,7 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import { useRegisterMutation } from "../redux/api/authApi";
 import LoginLogo from "../components/Login/LoginLogo";
 import Navbar from "../components/Navbar_components/Navbar";
-import Footer from "../components/Footer";
 import { useSelector } from "react-redux";
 
 const Register = () => {
@@ -37,7 +36,7 @@ const Register = () => {
       <div
         className={
           darkMode
-            ? " flex flex-col gap-5 bg-gray-800 w-screen h-screen justify-center    items-center"
+            ? " flex flex-col gap-5 bg-gray-900 w-screen h-screen justify-center    items-center"
             : " flex flex-col gap-5 w-screen h-screen justify-center    items-center"
         }
       >
@@ -78,7 +77,7 @@ const Register = () => {
             }
             className={
               darkMode &&
-              "bg-gray-800  border border-gray-800  placeholder-gray-500"
+              "bg-gray-900  border border-gray-900  placeholder-gray-500"
             }
             placeholderTextColor="gray"
           />
@@ -98,7 +97,7 @@ const Register = () => {
             }
             className={
               darkMode &&
-              "bg-gray-800  border border-gray-800  placeholder-gray-500"
+              "bg-gray-900  border border-gray-900  placeholder-gray-500"
             }
             placeholderTextColor="gray"
           />
@@ -119,7 +118,7 @@ const Register = () => {
             }
             className={
               darkMode &&
-              "bg-gray-800  border border-gray-800  placeholder-gray-500"
+              "bg-gray-900  border border-gray-900  placeholder-gray-500"
             }
             placeholderTextColor="gray"
           />
@@ -139,7 +138,7 @@ const Register = () => {
             }
             className={
               darkMode &&
-              "bg-gray-800  border border-gray-800  placeholder-gray-500"
+              "bg-gray-900 border border-gray-900  placeholder-gray-500"
             }
             placeholderTextColor="gray"
           />
@@ -163,7 +162,6 @@ const Register = () => {
           </button>
         </form>
       </div>
-      <Footer />
     </div>
   );
 };

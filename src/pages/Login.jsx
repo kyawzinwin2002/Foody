@@ -7,7 +7,7 @@ import { useLoginMutation } from "../redux/api/authApi";
 import { ADD_USER } from "../redux/services/authSlice";
 import LoginLogo from "../components/Login/LoginLogo";
 import Navbar from "../components/Navbar_components/Navbar";
-import Footer from "../components/Footer";
+
 
 const Login = () => {
   const [login] = useLoginMutation();
@@ -32,7 +32,7 @@ const Login = () => {
       <div
         className={
           darkMode
-            ? " flex flex-col gap-5 bg-gray-800 w-screen h-screen justify-center    items-center"
+            ? " flex flex-col gap-5 bg-gray-900 w-screen h-screen justify-center    items-center"
             : " flex flex-col gap-5 w-screen h-screen justify-center    items-center"
         }
       >
@@ -74,7 +74,7 @@ const Login = () => {
             }
             className={
               darkMode &&
-              "bg-gray-800  border border-gray-800  placeholder-gray-500 "
+              "bg-gray-900  border border-gray-900  placeholder-gray-500 "
             }
             placeholderTextColor="gray"
           />
@@ -95,7 +95,7 @@ const Login = () => {
             }
             className={
               darkMode &&
-              "bg-gray-800  border border-gray-800  placeholder-gray-500"
+              "bg-gray-900  border border-gray-900  placeholder-gray-500"
             }
             placeholderTextColor="gray"
           />
@@ -120,7 +120,7 @@ const Login = () => {
           </button>
         </form>
       </div>
-      <Footer />
+      
     </div>
   );
 };

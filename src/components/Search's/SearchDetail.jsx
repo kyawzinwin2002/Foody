@@ -20,7 +20,7 @@ const SearchDetail = (props) => {
     <div
       className={
         darkMode
-          ? " p-4 shadow-lg rounded-2xl  flex flex-col gap-3 relative border-yellow-700 shadow-red-500  border-2"
+          ? " p-4 shadow-lg rounded-2xl  flex flex-col gap-3 relative bg-gray-700  "
           : " p-4 shadow-md rounded-2xl flex flex-col gap-3 border-2  relative"
       }
     >

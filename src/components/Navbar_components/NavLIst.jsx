@@ -8,14 +8,20 @@ import { FaSun } from "react-icons/fa";
 import { useLogoutMutation } from "../../redux/api/authApi";
 import { REMOVE_USER } from "../../redux/services/authSlice";
 import Swal from "sweetalert2";
+import Cookies from "js-cookie";
 
 const NavLIst = () => {
   const darkMode = useSelector((state) => state.foodSlice.darkMode);
 
   const dispatch = useDispatch();
   const [isProfileOpen, setIsProfileOpen] = useState(false);
+
   const user = useSelector((state) => state.authSlice.user);
   const token = useSelector((state) => state.authSlice.token);
+
+  // const user = JSON.parse(Cookies.get("user"));
+  // const token = Cookies.get("token")
+
   const nav = useNavigate();
   const [logout] = useLogoutMutation();
   const logoutHandler = async () => {
@@ -114,7 +120,7 @@ const NavLIst = () => {
           }
         >
           {darkMode ? (
-            <FaSun size="2rem" className=" text-yellow-500" />
+            <FaSun size="2rem" className=" text-yellow-500 " />
           ) : (
             <BsMoonStarsFill size="1rem" className=" text-blue-500" />
           )}
@@ -158,7 +164,7 @@ const NavLIst = () => {
       ) : (
         <Link to={"/register"}>
           <li className=" ">
-            <button className=" px-6 py-2 bg-black text-white text-base rounded-md hover:bg-[#d02a3a]">
+            <button className=" px-6 py-2 bg-black text-white text-base rounded-2xl hover:bg-[#d02a3a]">
               Login/SignUp
             </button>
           </li>
