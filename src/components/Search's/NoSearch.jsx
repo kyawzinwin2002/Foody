@@ -26,9 +26,9 @@ const NoSearch = () => {
         >
           Oops!We haven't that food.TT
         </h1>
-        <Link to={"/menu"}>
+        <Link to={"/"}>
           <button className=" px-6 py-1 rounded-md text-white bg-[#d02a3a] text-base md:text-2xl">
-            Back To Menu
+            Back
           </button>
         </Link>
       </div>

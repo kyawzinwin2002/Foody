@@ -7,6 +7,7 @@ import { useLoginMutation } from "../redux/api/authApi";
 import { ADD_USER } from "../redux/services/authSlice";
 import LoginLogo from "../components/Login/LoginLogo";
 import Navbar from "../components/Navbar_components/Navbar";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -54,7 +55,17 @@ const Login = () => {
             const { data } = await login(values);
             dispatch(ADD_USER({ user: data?.user, token: data?.token }));
             if (data?.success) {
+              
               nav("/menu");
+            }else{
+              Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "Login Fail!",
+                text:"Email or Password is invalid",
+                showConfirmButton: false,
+                timer: 2000,
+              });
             }
           })}
         >

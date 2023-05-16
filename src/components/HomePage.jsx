@@ -57,7 +57,7 @@ const HomePage = () => {
           }}
           type="text"
           placeholder="Search Food"
-          className="w-[280px] focus-visible:outline-none hover:border-blue-500 md:w-[470px] border-2 h-[25px] md:h-[37px] border-gray-200 rounded-2xl p-2"
+          className="w-[280px] focus-visible:outline-none hover:border-blue-500 md:w-[470px] border-2 h-[25px] md:h-[37px] border-gray-200 rounded-2xl p-4"
         />
 
         <button
